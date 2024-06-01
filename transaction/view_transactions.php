@@ -7,7 +7,7 @@ if (!isset($_SESSION['id'])) {
     exit;
 }
 
-include 'db.php';
+include '../includes/db.php';
 
 // Fetch and display user-specific income and expense transactions
 
@@ -35,12 +35,11 @@ $expense_result = $expense_stmt->get_result();
 </head>
 <body>
     <header>
-        <?php include 'nav.php' ?>
+        <?php include '../includes/nav.php' ?>
     </header>
     <div class="container">
-        <h1>View Transactions</h1>
-        
-        <h2>Income Transactions</h2>
+
+        <h4 class="mt-4">Income Transactions</h4>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -64,7 +63,7 @@ $expense_result = $expense_stmt->get_result();
             </tbody>
         </table>
 
-        <h2>Expense Transactions</h2>
+        <h4>Expense Transactions</h4>
         <table class="table table-striped">
             <thead>
                 <tr>

@@ -7,7 +7,7 @@ if (!isset($_SESSION['id'])) {
     exit;
 }
 
-include 'db.php';
+include '../includes/db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = $_SESSION['id'];
@@ -22,6 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("issds", $user_id, $date, $source, $amount, $description);
     if ($stmt->execute()) {
+
+        if($amount > 0)
         // Insertion was successful, redirect to a success page or the dashboard
         header("Location: dashboard.php");
         exit;
@@ -36,15 +38,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Add Income</title>
-    <!-- Add CSS links for styling -->
+    <!-- Add Bootstrap CDN links for styling -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <header>
-        <?php include 'nav.php' ?>
+        <?php include '../includes/nav.php' ?>
     </header>
     <div class="container">
-        <h1>Add Income</h1>
+        <h2 class="mt-5">Add Income</h2>
         <form method="POST" action="add_income.php">
             <div class="form-group">
                 <label for="date">Date</label>

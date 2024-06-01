@@ -2,14 +2,14 @@
 <html>
 <head>
     <title>Login</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <h1 class="text-center">Login</h1>
-                <form method="POST" action="authenticate.php">
+                <h2 class="text-center">Login</h2>
+                <form method="POST" action="includes/authenticate.php">
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" name="email" id="email" required>
